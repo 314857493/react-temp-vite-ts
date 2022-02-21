@@ -8,7 +8,7 @@ module.exports = {
     "no-unused-expressions": 0,
     "react-hooks/exhaustive-deps": 0,
     "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
-    "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
+    "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off",
   },
   settings: {
     react: {
