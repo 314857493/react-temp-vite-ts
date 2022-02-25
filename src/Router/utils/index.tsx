@@ -3,9 +3,15 @@ import { Route } from "react-router-dom";
 import RouteWrapper from "../RouteWrapper";
 import type { MyRoute, RouteWithChild, RouteWithComponent } from "../types";
 
+function isRouteWithChild(
+  response: RouteWithChild | RouteWithComponent
+): response is RouteWithChild {
+  return (response as RouteWithChild).children !== undefined;
+}
+
 const generateRoute: any = (routers: MyRoute[]) => {
   return routers.map((item) => {
-    if ((item as RouteWithChild).children) {
+    if (isRouteWithChild(item)) {
       return generateRoute((item as RouteWithChild).children);
     }
     const { element: Element } = item as RouteWithComponent;
