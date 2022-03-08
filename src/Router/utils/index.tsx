@@ -12,9 +12,9 @@ function isRouteWithChild(
 const generateRoute: any = (routers: MyRoute[]) => {
   return routers.map((item) => {
     if (isRouteWithChild(item)) {
-      return generateRoute((item as RouteWithChild).children);
+      return generateRoute(item.children);
     }
-    const { element: Element } = item as RouteWithComponent;
+    const { element: Element } = item;
 
     return (
       <Route

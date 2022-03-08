@@ -1,15 +1,14 @@
-/* eslint-disable @typescript-eslint/no-shadow */
 import axios from "axios";
 import type { AxiosInstance, Axios } from "axios";
 import { message } from "antd";
 import { goLogin } from "./index";
 
-const config = {
+const baseConfig = {
   baseURL: "/api",
   timeout: 10 * 1000, // Timeout
   // withCredentials: true, // Check cross-site Access-Control
 };
-const _axios = axios.create(config) as AxiosInstance & {
+const _axios = axios.create(baseConfig) as AxiosInstance & {
   upload: Axios["post"];
 };
 // Add a response interceptor
